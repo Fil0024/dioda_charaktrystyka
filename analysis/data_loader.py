@@ -1,11 +1,17 @@
 import pandas as pd
+from pathlib import Path
 
-def load_data(path, sep=',', decimal=','):
-    df = pd.read_csv(path, sep=sep, decimal=decimal, skiprows=[1, 2])
-    df = df.drop(columns=['Komentarze'], errors='ignore')
-    return df
+SRC_DIR = Path(__file__).parent
+BASE_DIR = SRC_DIR.parent
+
+def load_data(filename: str, sep: str = ",", decimal: str = ",") -> pd.DataFrame:
+    path = BASE_DIR / filename
+    df = pd.read_csv(path, sep=sep, decimal=decimal, skiprows=[1])
+    return df.drop(columns=["Komentarze"], errors="ignore")
+
+def base_dir():
+    return BASE_DIR
 
 if __name__ == "__main__":
-    path = 'data/diod_k_1.csv'
-    df = load_data(path)
-    print(f"{path}: {df.shape} wczytane.")
+    df = load_data("data/pkt4.csv")
+    print(f"pkt4: {df.shape} wczytane.")
