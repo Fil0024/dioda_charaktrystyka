@@ -1,0 +1,7 @@
+Results for diod k 1:
+I_g = 2.2E-10 +- 1.0E-10
+M = 1.8676 +- 0.0606
+chi2_red = 0.00000130
+
+Mulitimeter U_p = 0.53 V
+experimental U_p = 0.6305 +- 0.0606
